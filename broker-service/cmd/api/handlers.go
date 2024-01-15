@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 )
 
@@ -114,7 +115,7 @@ func (app *Config) authenticate(w http.ResponseWriter, a AuthPayload) {
 		app.errorJSON(w, errors.New("invalid credentials"))
 		return
 	} else if response.StatusCode != http.StatusAccepted {
-		app.errorJSON(w, errors.New("error calling of service"))
+		app.errorJSON(w, errors.New(fmt.Sprintf("error calling of service: %s", response.Status)))
 		return
 	}
 
