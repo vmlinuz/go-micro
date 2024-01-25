@@ -1,6 +1,27 @@
 version: '3'
 
 services:
+  caddy:
+    build:
+      context: ./
+      dockerfile: ./caddy.dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  front-end:
+    build:
+      context: ./../front-end
+      dockerfile: ./../front-end/front-end.dockerfile
+    deploy:
+      mode: replicated
+      replicas: 1
 
   broker-service:
     build:
