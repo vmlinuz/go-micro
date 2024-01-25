@@ -14,7 +14,7 @@ services:
       replicas: 1
 
   front-end:
-    image: volodymyrsalo/front-end:1.0.2
+    image: volodymyrsalo/front-end:1.0.7
     deploy:
       mode: replicated
       replicas: 1
