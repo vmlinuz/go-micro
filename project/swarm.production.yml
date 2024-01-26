@@ -19,7 +19,7 @@ services:
       mode: replicated
       replicas: 1
     environment:
-      BROKER_URL: "http://backend"
+      BROKER_URL: "http://node-2"
 
   broker-service:
     image: volodymyrsalo/broker-service:1.0.0
