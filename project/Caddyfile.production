@@ -28,6 +28,6 @@ node-1:80 {
 	reverse_proxy http://front-end:8082
 }
 
-node-1:80 {
+node-2:80 {
 	reverse_proxy http://broker-service:8080
 }
