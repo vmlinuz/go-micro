@@ -18,8 +18,11 @@ type PostgresRepository struct {
 	Conn *sql.DB
 }
 
-func NewPostgresRepository(db *sql.DB) *PostgresRepository {
-	return &PostgresRepository{Conn: db}
+func NewPostgresRepository(pool *sql.DB) *PostgresRepository {
+	db = pool
+	return &PostgresRepository{
+		Conn: pool,
+	}
 }
 
 // New is the function used to create an instance of the data package. It returns the type
